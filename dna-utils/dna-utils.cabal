@@ -1,0 +1,25 @@
+name:                dna-utils
+version:             0.1.0.0
+synopsis:            Simple DNA Utilities
+description:         Please see README.md
+homepage:            http://github.com/danplubell/tree/master/dna-utils#readme
+license:             BSD3
+author:              Dan Plubell
+maintainer:          danplubell@gmail.com
+copyright:           2010 Dan Plubell
+category:            Other
+build-type:          Simple
+
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     DNA
+  build-depends:       base >= 4.7 && < 5
+                       , containers
+  default-language:    Haskell2010
+
+
+source-repository head
+  type:     git
+  location: https://github.com/danplubell/tree/master/dna-utils
