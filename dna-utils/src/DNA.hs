@@ -21,9 +21,9 @@ nucleotideCounts xs = countNucleotides (fromList [(x,0)|x<-"ACGT"])
 -- | Count the number of differences in homologous strands of DNA
 hammingDistance :: String -> String -> Int
 hammingDistance xs ys |length xs /= length ys                      = error   "Input strands must have same length"
-                      |length (filter validateNucleotide xs) == 0  = error $ "Input strand contains invalid nucleotide: " ++ xs
-                      |length (filter validateNucleotide ys) == 0  = error $ "Input strand contains invalid nucleotide: " ++ ys
+                      |length (filter validateNucleotide xs) == 0  = error $ "Input strand contains invalid nucleotide. Valid values are AGTC: " ++ xs
+                      |length (filter validateNucleotide ys) == 0  = error $ "Input strand contains invalid nucleotide. Valid values are AGTC: " ++ ys
                       |otherwise                                  = length $ filter not $ zipWith (==) xs ys
                 where
                   validateNucleotide::Char -> Bool
-                  validateNucleotide n = notElem n validNucleotideList
+                  validateNucleotide n = elem n validNucleotideList
